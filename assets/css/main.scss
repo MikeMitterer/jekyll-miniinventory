@@ -48,7 +48,9 @@ $on-laptop:        800px;
 }
 
 img[alt=preview], .post-list img {
-    border: 1px solid red;
+    .debug & { border: 1px solid red; }
+
+    border: 2px solid $grey-color-dark;
     width: 100px;
 }
 

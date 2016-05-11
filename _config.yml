@@ -43,5 +43,12 @@ defaults:
     values:
       category: "lagera"
 
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      thumbnail: "not-found.png"
+
 # Build settings
 markdown: kramdown
