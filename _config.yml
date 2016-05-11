@@ -25,9 +25,15 @@ github_username:  jekyll
 gems: ['jekyll-lunr-js-search']
 
 lunr_search:
-  excludes: [web/search, category ]
+  excludes: [web/search, web/category ]
 
 exclude: [ "ministock.iml", "README.txt" ]
+#include: ['_dart']
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:year/:title/
 
 defaults:
   -
@@ -42,6 +48,13 @@ defaults:
       type: "posts"
     values:
       category: "lagera"
+
+  -
+    scope:
+      path: "_posts/lagerb"
+      type: "posts"
+    values:
+      category: "lagerb"
 
   -
     scope:
