@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About
-# permalink: /about/
+weight: 1
 ---
 
 {% include submenu.html maxlevels = 3 %}

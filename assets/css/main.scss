@@ -79,6 +79,12 @@ img[alt=preview], .post-list img {
     }
 }
 
+.nav {
+    .is-active {
+        font-weight : bold;
+    }
+}
+
 .post-list {
     display: flex;
     flex-direction: row;

@@ -23,7 +23,14 @@ lunr_search:
   excludes: [web/search, category ]
 
 exclude: [ "ministock.iml", "README.txt" ]
+
 defaults:
+  -
+    scope:
+      path: "web"
+      type: "pages"
+    values:
+      weight: 0
   -
     scope:
       path: "_posts/lagera"

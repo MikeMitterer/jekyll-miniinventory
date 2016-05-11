@@ -1,16 +1,31 @@
+{% assign url_parts = page.url | split: '/' %}
+{% assign pageurl = page.url %}
+{% assign filename = url_parts | last | split: '.' %}
+{% assign pagename = filename[0] %}
+{% assign keyfolder = url_parts[2] %}
+
+{% assign pages = site.pages | sort: "weight"  %}
 <ul class="nav horizontal">
-    {% assign pages = site.pages | sort:"weight"  %}
     {% for page in pages %}
-    {% assign path_parts = page.url | split: '.' %}
-    {% assign extension = path_parts | last | downcase %}
-    {% if extension == "html" %}
-    {% assign url_parts = page.url | split: '/' %}
-    {% assign levels = url_parts.size | minus: 1 %}
-    {% if levels == include.maxlevels %}
-    <li class="level-{{levels}}">
-        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
-    </li>
-    {% endif %}
-    {% endif %}
+        {% assign path_parts = page.url | split: '.' %}
+        {% assign extension = path_parts | last | downcase %}
+
+        {% if extension == "html" %}
+            {% assign url_parts = page.url | split: '/' %}
+            {% assign levels = url_parts.size | minus: 1 %}
+            {% assign filename = url_parts | last | split: '.' %}
+
+            {% if page.url == pageurl or keyfolder == filename[0] %}
+                {% assign is_active = "is-active" %}
+            {% else %}
+                {% assign is_active = "not-active" %}
+            {% endif %}
+
+            {% if levels == include.maxlevels %}
+                <li class="level-{{levels}} {{is_active}}">
+                    <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+                </li>
+            {% endif %}
+        {% endif %}
     {% endfor %}
 </ul>
