@@ -20,6 +20,12 @@ $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
 
+// Header
+$header-height:     56px;
+
+// Footer
+$footer-height:     180px;
+
 // Width of the content area
 $content-width:    1100px;
 
@@ -46,9 +52,14 @@ img[alt=preview], .post-list img {
     width: 100px;
 }
 
-.site-header, .site-footer {
-    background-color: $grey-color;
+.site-header { background-color : $grey-color; }
+.site-footer {
+    color: white;
+    a { color: white; }
+
+    background-color : $grey-color-dark;
 }
+
 .site-header {
     .wrapper {
         display: flex;
@@ -124,6 +135,48 @@ img[alt=preview], .post-list img {
     }
 }
 
+.level {
+    box-sizing: border-box;
+
+    &-2 { padding-left : 20px; }
+    &-3 { padding-left : 30px; }
+    &-4 { padding-left : 40px; }
+}
+
+
+ul.nav {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+
+    &.horizontal {
+        li { display: inline; }
+    }
+}
+
+.page-content {
+    min-height: calc(100vh - #{$header-height} - #{$footer-height} - #{$spacing-unit} * 2);
+    > .wrapper {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: flex-start; // ⇾
+        align-content: space-between; // ||
+        align-items: flex-start; // ↓
+
+        > .subnav {
+            .menuitem {
+                border: 1px solid red;
+                width: 150px;
+            }
+        }
+
+        > .main {
+            flex-grow: 1;
+            border: 1px solid blue;
+        }
+    }
+}
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "base",

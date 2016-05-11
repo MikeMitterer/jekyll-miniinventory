@@ -1,0 +1,16 @@
+<ul class="nav horizontal">
+    {% assign pages = site.pages | sort:"weight"  %}
+    {% for page in pages %}
+    {% assign path_parts = page.url | split: '.' %}
+    {% assign extension = path_parts | last | downcase %}
+    {% if extension == "html" %}
+    {% assign url_parts = page.url | split: '/' %}
+    {% assign levels = url_parts.size | minus: 1 %}
+    {% if levels == include.maxlevels %}
+    <li class="level-{{levels}}">
+        <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+    </li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+</ul>

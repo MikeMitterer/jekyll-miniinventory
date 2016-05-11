@@ -9,7 +9,12 @@
 
     <div class="page-content">
       <div class="wrapper">
-        {{ content }}
+          <nav class="subnav">
+              {% include submenu.html mindepth = 3 %}
+          </nav>
+          <main class="main">
+              {{ content }}
+          </main>
       </div>
     </div>
 

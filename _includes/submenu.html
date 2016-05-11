@@ -1,0 +1,24 @@
+{% assign url_parts = page.url | split: '/' %}
+{% assign filename = url_parts | last | split: '.' %}
+{% assign pagename = filename[0] %}
+{% assign keyfolder = url_parts[2] %}
+<ul class="nav vertical">
+
+    {% assign pages = site.pages | sort:"weight"  %}
+    {% for page in pages %}
+        {% assign path_parts = page.url | split: '.' %}
+        {% assign extension = path_parts | last | downcase %}
+
+        {% if extension == "html" %}
+            {% assign url_parts = page.url | split: '/' %}
+            {% assign nr_of_subdirs = url_parts.size | minus: 1 %}
+
+            {% if nr_of_subdirs >= include.mindepth and (url_parts[2] == pagename or url_parts[2] == keyfolder) %}
+            <li class="level level-{{nr_of_subdirs}} menuitem">
+                <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
+            </li>
+            {% endif %}
+
+        {% endif %}
+    {% endfor %}
+</ul>

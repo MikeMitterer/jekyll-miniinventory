@@ -22,6 +22,7 @@ gems: ['jekyll-lunr-js-search']
 lunr_search:
   excludes: [web/search, category ]
 
+exclude: [ "ministock.iml", "README.txt" ]
 defaults:
   -
     scope:
