@@ -8,14 +8,13 @@
 
   <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
-  <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
 
   <script src='{{ "/assets/js/search.min.js" | prepend: site.baseurl }}' type="text/javascript" charset="utf-8"></script>
 
   <script type="text/javascript">
     $(function() {
         $('#search-query').lunrSearch({
-            indexUrl  : '{{ "/assets/js/index.json" | prepend: site.baseurl }}', // url for the .json file containing search index data
+            indexUrl  : '{{ "/js/index.json" | prepend: site.baseurl }}', // url for the .json file containing search index data
             results   : '#search-results',          // selector for containing search results element
             template  : '#search-results-template', // selector for Mustache.js template
             titleMsg  : '<h1>Search results<h1>',   // message attached in front of results (can be empty)

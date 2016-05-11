@@ -1,3 +1,6 @@
+Config
+    jekyll serve --config _config.yml,_config_dev.yml
+
 Search:
     https://github.com/slashdotdash/jekyll-lunr-js-search
 
