@@ -172,14 +172,14 @@ ul.nav {
 
         > .subnav {
             .menuitem {
-                border: 1px solid red;
+                .debug & { border: 1px solid red; }
                 width: 150px;
             }
         }
 
         > .main {
             flex-grow: 1;
-            border: 1px solid blue;
+            .debug & { border: 1px solid blue; }
         }
     }
 }
